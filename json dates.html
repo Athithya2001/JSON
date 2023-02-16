@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Parsing DatesI:</h1>
+    <p id="pd"></p>
+    <script>
+        const strobj='{"name":"athi","dob":"2001-8-9"}';
+        const obj=JSON.parse(strobj);
+        obj.dob=new Date(obj.dob);
+        document.getElementById("pd").innerHTML=obj.dob;
+
+    </script>
+    <h1>Parsing DatesII:</h1>
+    <p id="pd2"></p>
+    <script>
+        const strobj1='{"name":"athi","dob":"2001-8-9"}';
+        const obj1=JSON.parse(strobj1,function(key,value){
+            if(key=="dob"){
+                return new Date(value);
+            }
+            else{
+                return value;
+            }
+        });
+        obj.dob=new Date(obj.dob);
+        document.getElementById("pd2").innerHTML=obj1.dob;
+
+    </script>
+    <h1>Stringify Dates:</h1>
+    <p id="sd"></p>
+    <script>
+        const strobj2={name:"athi",dob:"2001-8-9",place:"varakalpattu"};
+        const obj2=JSON.stringify(strobj2);
+
+        document.getElementById("sd").innerHTML=obj2;
+
+    </script>
+    <h1>Parsing Function:</h1>
+    <p id="pf"></p>
+    <script>
+        const strobj3='{"fname":"athi","lname":"baskaran","name":"function(){return this.fname+this.lname;}"}';
+        const obj3=JSON.parse(strobj3);
+        obj3.name=eval("("+obj3.name+")");
+        document.getElementById("pf").innerHTML=obj3.name();
+
+    </script>
+    <h1>Stringify Function:</h1>
+    <p id="sf"></p>
+    <script>
+        const obj4={fname:"riya",lname:"baskaran",name:function(){return this.fname+this.lname;}};
+        obj4.name=obj4.name.toString();
+        const strobj4=JSON.stringify(obj4);
+        document.getElementById("sf").innerHTML=strobj4;
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JS Object to JSON String:</h1>
+    <p id="athi"></p>
+    <script>
+        const student={name:"riya",age:22};
+        const raam=JSON.stringify(student);
+        document.getElementById("athi").innerHTML=raam;
+        </script>
+        <h1>JS string to JSON Object:</h1>
+        <p id="marie"></p>
+        <script>
+            const student1='{"name":"riya","age":22}';
+            const raam1=JSON.parse(student1);
+            document.getElementById("marie").innerHTML=raam1.name+","+raam1.age;
+            </script>
+            <h1>Js Array to JSON: </h1>
+            <p id="jan"></p>
+            <script>
+                const student2=["riya",22];
+                const raam2=JSON.stringify(student2);
+                document.getElementById("jan").innerHTML=raam2;
+                </script>
+                <h1>JSON to JS Array:</h1>
+                <p id="hema"></p>
+                <script>
+                    const student3='["riya",22]';
+                    const raam3=JSON.parse(student3);
+                    document.getElementById("hema").innerHTML=raam3[1];
+                    </script>
+</body>
+</html>
